@@ -1,12 +1,22 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'com.capacitor.background',
   appName: 'app-sqlite',
   webDir: 'www',
   server: {
     androidScheme: 'https'
-  }
+  },
+  plugins: {
+    BackgroundRunner: {
+      label: 'com.capacitor.background.check',
+      src: 'runners/runner.js',
+      event: 'checkIn',
+      repeat: true,
+      interval: 1,
+      autoStart: true,
+    },
+  },
 };
 
 export default config;

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Ionic-NestJs-Socket</string>
+    <string name="title_activity_main">Ionic-NestJs-Socket</string>
+    <string name="package_name">Ionic-NestJs-Socket</string>
+    <string name="custom_url_scheme">Ionic-NestJs-Socket</string>
+</resources>

@@ -1,0 +1,27 @@
+<ion-content [fullscreen]="true" color="primary-contrast content">
+
+  <ion-header [translucent]="true" class="ion-no-border" color="primary-constrast">
+    <ion-toolbar color="primary-contrast">
+
+      <ion-button slot="start" color="primary-contrast">
+        <ion-icon name="menu" color="dark"></ion-icon>
+      </ion-button>
+
+      <ion-searchbar [(ngModel)]="message" name="search" class="srchBar" color="primary-constrast"
+        placeholder="Message">
+
+      </ion-searchbar>
+
+      <button (click)="sendMessage()" slot="end" color="transparent" class="notif-btn">
+        <ion-icon name="arrow-undo-outline"></ion-icon>
+      </button>
+
+    </ion-toolbar>
+  </ion-header>
+  <div class="network-alert" *ngIf="!socketConnected">
+    Impossible de se connecter au socket
+  </div>
+  <div class="card"  *ngFor="let m of messages">
+    {{m}}
+  </div>
+</ion-content>
