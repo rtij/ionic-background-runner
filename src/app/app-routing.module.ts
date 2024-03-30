@@ -5,7 +5,7 @@ import { MessageComponent } from './message/message.component';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+   component:MessageComponent
   },
   {
     path: '',

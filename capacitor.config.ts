@@ -11,9 +11,9 @@ const config: CapacitorConfig = {
     BackgroundRunner: {
       label: 'com.capacitor.background.check',
       src: 'runners/runner.js',
-      event: 'checkIn',
+      event: 'notificationTest',
       repeat: true,
-      interval: 1,
+      interval: 10,
       autoStart: true,
     },
   },

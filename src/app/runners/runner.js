@@ -18,29 +18,24 @@ addEventListener('fetchTest', async (resolve, reject, args) => {
 
 // Trigger a local notification
 addEventListener('notificationTest', async (resolve, reject, args) => {
-  let id = 42;
-  setInterval(() => {
-    try {
-      let scheduleDate = new Date();
-      scheduleDate.setSeconds(scheduleDate.getSeconds() + 5);
+  let id = 1;
+  try {
+    // let scheduleDate = new Date();
+    // scheduleDate.setSeconds(scheduleDate.getSeconds() + 5);
 
-      CapacitorNotifications.schedule([
-        {
-          id: id,
-          title: 'Background Magic 🧙‍♂️',
-          body: 'This comes from the background runner',
-          scheduleAt: scheduleDate,
-        },
-      ]);
+    CapacitorNotifications.schedule([
+      {
+        id: id + scheduleDate.getMinutes()+scheduleDate.getSeconds(),
+        title: 'Background Magic 🧙‍♂️',
+        body: 'Schedule at : '+ scheduleDate.getHours()+ ' : ' + scheduleDate.getMinutes() + ' : ' + scheduleDate.getSeconds()
+      },
+    ]);
 
-      resolve();
-    } catch (err) {
-      console.error(err);
-      reject(err);
-    }
-    id++
-  }, 10000);
-
+    resolve();
+  } catch (err) {
+    console.error(err);
+    reject(err);
+  }
 });
 
 // // Save a value to the Capacitor KV store

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BackgroundRunner } from '@capacitor/background-runner';
+import { ForegroundService } from '@ionic-native/foreground-service/ngx';
 
 @Component({
   selector: 'app-home',
@@ -9,9 +10,17 @@ import { BackgroundRunner } from '@capacitor/background-runner';
 export class HomePage {
   user: any = null;
 
-  constructor() {
+  constructor(public foregroundService: ForegroundService) {
     this.init();
+    this.startService();
   }
+
+  // 
+
+  startService() {
+    // Notification importance is optional, the default is 1 - Low (no sound or vibration)
+    this.foregroundService.start('GPS Running', 'Background Service', 'drawable/fsicon');
+   }
 
   // Request permissions for background tasks
   async init() {
